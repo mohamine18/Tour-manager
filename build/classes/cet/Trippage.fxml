@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1032.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cet.TrippageController">
+  <children>
+    <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <ToolBar />
+      </bottom>
+      <center>
+        <SplitPane dividerPositions="0.4289772727272727" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0">
+          <items>
+            <AnchorPane minHeight="-1.0" minWidth="450.0" prefHeight="-1.0" prefWidth="450.0">
+              <children>
+                <VBox prefHeight="459.0" prefWidth="327.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                    <ToolBar>
+                      <items>
+                        <Button fx:id="LoadTrips" mnemonicParsing="false" onAction="#LoadTripTables" text="Load">
+                          <graphic>
+                            <ImageView fitHeight="21.0" fitWidth="200.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                <Image url="@../img/icon%20(2).png" />
+                              </image>
+                            </ImageView>
+                          </graphic>
+                        </Button>
+                        <Button fx:id="AddTrip" mnemonicParsing="false" onAction="#AddTripPanel" prefHeight="26.0" text="Add Trip" />
+                        <Button fx:id="EditTrip" mnemonicParsing="false" onAction="#EditTrip" prefHeight="26.0" text="Edit Trip" />
+                        <Button id="EditTrip" mnemonicParsing="false" onAction="#DuplicateTrip" prefHeight="26.0" text="Duplicate Trip" />
+                      </items>
+                    </ToolBar>
+                    <TabPane prefHeight="459.0" prefWidth="327.0" tabClosingPolicy="UNAVAILABLE">
+                      <tabs>
+                        <Tab text="Up Coming Trips">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <TableView fx:id="UpTable" onContextMenuRequested="#AssignLeaders" onMouseClicked="#UpMouseClicked" prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <columns>
+                                    <TableColumn editable="true" prefWidth="75.0" text="PN" fx:id="UpPN" />
+                                    <TableColumn editable="false" minWidth="100.0" prefWidth="300.0" text="Name" fx:id="UpName1" />
+                                    <TableColumn prefWidth="80.0" text="Type" fx:id="UpType" />
+                                    <TableColumn prefWidth="150.0" text="Date" fx:id="UpDate" />
+                                    <TableColumn prefWidth="150.0" text="Price" fx:id="UpPrice" />
+                                  </columns>
+                                </TableView>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="One Day Trip">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <TableView fx:id="OneTable" onMouseClicked="#OneMouseClicked" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <columns>
+                                    <TableColumn prefWidth="75.0" text="PN" fx:id="OnePN" />
+                                    <TableColumn editable="true" maxWidth="5000.0" minWidth="100.0" prefWidth="300.0" text="Name" fx:id="OneName" />
+                                    <TableColumn maxWidth="200.0" prefWidth="150.0" text="Date" fx:id="OneDate" />
+                                    <TableColumn prefWidth="150.0" text="Price" fx:id="OnePrice" />
+                                  </columns>
+                                </TableView>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="Long Trip">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <TableView fx:id="LongTable" onMouseClicked="#LongMouseClicked" prefHeight="333.0" prefWidth="497.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <columns>
+                                    <TableColumn prefWidth="75.0" text="PN" fx:id="LongPN" />
+                                    <TableColumn maxWidth="5000.0" minWidth="100.0" prefWidth="300.0" text="Name" fx:id="LongName" />
+                                    <TableColumn maxWidth="200.0" prefWidth="150.0" text="Date" fx:id="LongDate" />
+                                    <TableColumn prefWidth="150.0" text="Price" fx:id="LongPrice" />
+                                  </columns>
+                                </TableView>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab text="Free Trip">
+                          <content>
+                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                              <children>
+                                <TableView fx:id="FreeTable" onMouseClicked="#FreeMouseClicked" prefHeight="397.0" prefWidth="497.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                  <columns>
+                                    <TableColumn prefWidth="75.0" text="PN" fx:id="FreePN" />
+                                    <TableColumn maxWidth="5000.0" minWidth="100.0" prefWidth="300.0" text="Name" fx:id="FreeName" />
+                                    <TableColumn maxWidth="200.0" prefWidth="150.0" text="Date" fx:id="FreeDate" />
+                                    <TableColumn prefWidth="150.0" text="Price" fx:id="FreePrice" />
+                                  </columns>
+                                </TableView>
+                              </children>
+                            </AnchorPane>
+                          </content>
+                        </Tab>
+                      </tabs>
+                    </TabPane>
+                    <VBox prefHeight="200.0" prefWidth="100.0">
+                      <children>
+                        <VBox>
+                          <children>
+                            <Label fx:id="TripLabel" prefWidth="319.0" text="" textFill="RED">
+                              <font>
+                                <Font name="System Bold Italic" size="12.0" fx:id="x6" />
+                              </font>
+                              <VBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                              </VBox.margin>
+                            </Label>
+                            <HBox>
+                              <children>
+                                <Label text="Trip Name :">
+                                  <font>
+                                    <Font name="System Bold Italic" size="13.0" fx:id="x5" />
+                                  </font>
+                                  <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                                  </HBox.margin>
+                                </Label>
+                                <TextField fx:id="TFtripeName" editable="false" prefHeight="22.0" prefWidth="350.0" HBox.margin="$x4" />
+                              </children>
+                              <VBox.margin>
+                                <Insets />
+                              </VBox.margin>
+                            </HBox>
+                            <HBox prefHeight="-1.0" prefWidth="-1.0">
+                              <children>
+                                <Label font="$x5" text="Price :" HBox.margin="$x4" />
+                                <TextField fx:id="TFTripPrice" editable="false" prefHeight="22.0" prefWidth="-1.0">
+                                  <HBox.margin>
+                                    <Insets bottom="10.0" left="43.0" right="10.0" top="10.0" />
+                                  </HBox.margin>
+                                </TextField>
+                                <Label font="$x5" text="Trip Type :" HBox.margin="$x4" />
+                                <ComboBox id="ChTrip" fx:id="ChTripType" disable="true" opacity="0.8" prefWidth="100.0" visibleRowCount="4" HBox.margin="$x4">
+                                  <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                      <String fx:value="Item 1" />
+                                      <String fx:value="Item 2" />
+                                      <String fx:value="Item 3" />
+                                    </FXCollections>
+                                  </items>
+                                </ComboBox>
+                              </children>
+                            </HBox>
+                            <HBox prefHeight="100.0" prefWidth="200.0">
+                              <children>
+                                <Label font="$x5" text="Date of Trip :">
+                                  <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                                  </HBox.margin>
+                                </Label>
+                                <ComboBox fx:id="ChTripYear" disable="true" opacity="0.8" visibleRowCount="8">
+                                  <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                      <String fx:value="Item 1" />
+                                      <String fx:value="Item 2" />
+                                      <String fx:value="Item 3" />
+                                    </FXCollections>
+                                  </items>
+                                  <HBox.margin>
+                                    <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                                  </HBox.margin>
+                                </ComboBox>
+                                <ComboBox fx:id="ChTripMo" disable="true" opacity="0.8" visibleRowCount="8">
+                                  <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                      <String fx:value="Item 1" />
+                                      <String fx:value="Item 2" />
+                                      <String fx:value="Item 3" />
+                                    </FXCollections>
+                                  </items>
+                                  <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                                  </HBox.margin>
+                                </ComboBox>
+                                <ComboBox fx:id="ChTripDy" disable="true" opacity="0.8" visibleRowCount="8">
+                                  <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                      <String fx:value="Item 1" />
+                                      <String fx:value="Item 2" />
+                                      <String fx:value="Item 3" />
+                                    </FXCollections>
+                                  </items>
+                                  <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                                  </HBox.margin>
+                                </ComboBox>
+                              </children>
+                            </HBox>
+                            <HBox alignment="TOP_CENTER">
+                              <children>
+                                <Button fx:id="BTConfirmEdit" disable="true" mnemonicParsing="false" onAction="#BTConfirmEdit" text="Confirm Edit">
+                                  <font>
+                                    <Font name="System Bold" size="13.0" fx:id="x3" />
+                                  </font>
+                                  <textFill>
+                                    <Color blue="0.000" green="0.800" red="0.255" fx:id="x7" />
+                                  </textFill>
+                                  <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                                  </HBox.margin>
+                                </Button>
+                                <Button fx:id="BTDeleteTrip" disable="true" font="$x3" mnemonicParsing="false" onAction="#BTDeletePanle" text="Delete" textFill="RED">
+                                  <HBox.margin>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                                  </HBox.margin>
+                                </Button>
+                              </children>
+                            </HBox>
+                          </children>
+                        </VBox>
+                      </children>
+                    </VBox>
+                  </children>
+                </VBox>
+              </children>
+            </AnchorPane>
+            <AnchorPane minWidth="600.0" prefWidth="700.0">
+              <children>
+                <VBox prefHeight="459.0" prefWidth="446.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                    <ToolBar orientation="HORIZONTAL">
+                      <items>
+                        <Button id="LoadCETES" fx:id="LoadHikers" contentDisplay="LEFT" mnemonicParsing="false" onAction="#LoadHikers" text="Load" textAlignment="LEFT">
+                          <graphic>
+                            <ImageView fitHeight="21.0" fitWidth="200.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                <Image url="@../img/icon%20(2).png" />
+                              </image>
+                            </ImageView>
+                          </graphic>
+                        </Button>
+                        <Button id="ADDCETES" fx:id="AddHiker" contentDisplay="LEFT" mnemonicParsing="false" onAction="#AddHiker" prefHeight="26.0" text="Add Hiker" textAlignment="LEFT" />
+                        <Button id="EDITCETES" fx:id="EditHiker" contentDisplay="LEFT" mnemonicParsing="false" onAction="#EditHiker" prefHeight="26.0" text="Edit Hiker" textAlignment="LEFT" />
+                      </items>
+                      <VBox.margin>
+                        <Insets />
+                      </VBox.margin>
+                    </ToolBar>
+                    <TableView id="CETESTable" fx:id="HikersTable" onMouseClicked="#HikerMouseClicked">
+                      <columns>
+                        <TableColumn prefWidth="75.0" text="PN" fx:id="HikerPN" />
+                        <TableColumn prefWidth="150.0" text="Name" fx:id="HikerName" />
+                        <TableColumn prefWidth="150.0" text="Phone" fx:id="HikerPhone" />
+                        <TableColumn prefWidth="150.0" text="Meeting Point" fx:id="HikerMP" />
+                        <TableColumn prefWidth="150.0" text="Amount" fx:id="HikerAmount" />
+                        <TableColumn prefWidth="150.0" text="Payment Method" fx:id="HikerPM" />
+                      </columns>
+                    </TableView>
+                    <VBox>
+                      <children>
+                        <Label fx:id="LabelGoto" font="$x6" prefWidth="337.0" text="" textFill="RED">
+                          <VBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                          </VBox.margin>
+                        </Label>
+                        <HBox>
+                          <children>
+                            <Label font="$x5" text="Meeting Point :">
+                              <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                              </HBox.margin>
+                            </Label>
+                            <ComboBox fx:id="HikerMeetP" disable="true" opacity="0.8" prefWidth="200.0" visibleRowCount="4">
+                              <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="Item 1" />
+                                  <String fx:value="Item 2" />
+                                  <String fx:value="Item 3" />
+                                </FXCollections>
+                              </items>
+                              <HBox.margin>
+                                <Insets bottom="10.0" left="35.0" right="10.0" top="10.0" />
+                              </HBox.margin>
+                            </ComboBox>
+                          </children>
+                          <VBox.margin>
+                            <Insets />
+                          </VBox.margin>
+                        </HBox>
+                        <HBox>
+                          <children>
+                            <Label font="$x5" text="Amount :">
+                              <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                              </HBox.margin>
+                            </Label>
+                            <TextField id="HikerAmount" fx:id="Hikeramount" editable="false" prefWidth="200.0">
+                              <HBox.margin>
+                                <Insets bottom="10.0" left="72.0" right="10.0" top="10.0" />
+                              </HBox.margin>
+                            </TextField>
+                          </children>
+                        </HBox>
+                        <HBox>
+                          <children>
+                            <Label font="$x5" text="Paymeent Method :">
+                              <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                              </HBox.margin>
+                            </Label>
+                            <ComboBox id="HikerPM" fx:id="Hikerpm" disable="true" opacity="0.8" prefHeight="21.0" prefWidth="200.0">
+                              <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="Item 1" />
+                                  <String fx:value="Item 2" />
+                                  <String fx:value="Item 3" />
+                                </FXCollections>
+                              </items>
+                              <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                              </HBox.margin>
+                            </ComboBox>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER">
+                          <children>
+                            <Button fx:id="BTConfirmHikEdit" disable="true" font="$x3" mnemonicParsing="false" onAction="#BTConfirmHikEdit" text="Confirm Edit" textFill="$x7">
+                              <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                              </HBox.margin>
+                            </Button>
+                            <Button fx:id="BTDeleteHike" disable="true" font="$x3" mnemonicParsing="false" onAction="#DeleteHiker" text="Delete" textFill="RED">
+                              <HBox.margin>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" fx:id="x4" />
+                              </HBox.margin>
+                            </Button>
+                          </children>
+                        </HBox>
+                      </children>
+                    </VBox>
+                  </children>
+                </VBox>
+              </children>
+            </AnchorPane>
+          </items>
+        </SplitPane>
+      </center>
+      <top>
+        <VBox>
+          <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Customers">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#MenuItemCustomerlunch" text="Add Customer" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Trips">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Add Trips" />
+                    <MenuItem mnemonicParsing="false" text="Add Hikers" />
+                    <MenuItem mnemonicParsing="false" onAction="#ConsultLeaders" text="Consult Leaders" />
+                    <MenuItem mnemonicParsing="false" onAction="#TripInformations" text="Trips Information" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Leaders">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Add Leaders" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="VIP">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Add VIP" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Customer" />
+                    <MenuItem mnemonicParsing="false" text="Trip" />
+                    <MenuItem mnemonicParsing="false" text="Hiker" />
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+              <children>
+                <Button fx:id="Cus" contentDisplay="TOP" mnemonicParsing="false" onAction="#ButtonAction" text="Customers" textAlignment="LEFT" wrapText="false">
+                  <font>
+                    <Font name="System Bold" size="12.0" fx:id="x1" />
+                  </font>
+                  <graphic>
+                    <ImageView fitHeight="80.0" fitWidth="100.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../img/Cust.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                  <HBox.margin>
+                    <Insets bottom="5.0" left="10.0" top="5.0" fx:id="x2" />
+                  </HBox.margin>
+                </Button>
+                <Button contentDisplay="TOP" disable="true" font="$x1" mnemonicParsing="false" text="Trips" HBox.margin="$x2">
+                  <graphic>
+                    <ImageView fitHeight="80.0" fitWidth="100.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../img/Trip.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </Button>
+                <Button contentDisplay="TOP" font="$x1" mnemonicParsing="false" onAction="#leaderaction" text="Leaders" HBox.margin="$x2">
+                  <graphic>
+                    <ImageView fitHeight="80.0" fitWidth="100.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../img/Leader.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </Button>
+                <Button contentDisplay="TOP" font="$x1" mnemonicParsing="false" text="VIP" HBox.margin="$x2">
+                  <graphic>
+                    <ImageView fitHeight="80.0" fitWidth="100.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../img/VIP.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </Button>
+              </children>
+            </HBox>
+          </children>
+        </VBox>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>

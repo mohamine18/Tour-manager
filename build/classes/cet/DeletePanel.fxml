@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cet.DeletePanelController">
+  <children>
+    <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="22.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../img/ark.png" />
+      </image>
+    </ImageView>
+    <Label fx:id="DeleteLabel" layoutX="160.0" layoutY="88.0" prefWidth="187.0" text="" textFill="#10cc00">
+      <font>
+        <Font name="System Italic" size="13.0" />
+      </font>
+    </Label>
+    <Separator layoutX="0.0" layoutY="147.0" prefWidth="400.0" />
+    <Button layoutX="253.0" layoutY="160.0" mnemonicParsing="false" onAction="#DeleteConfirm" text="Delete" textFill="RED">
+      <font>
+        <Font size="14.0" fx:id="x1" />
+      </font>
+    </Button>
+    <Button font="$x1" layoutX="325.0" layoutY="160.0" mnemonicParsing="false" onAction="#CancelDelete" text="Cancel" textFill="#41cc00" />
+    <Label id="DeleteLabel" layoutX="160.0" layoutY="57.0" prefWidth="187.0" text="Are You Sure About Deleting" textFill="BLACK">
+      <font>
+        <Font name="System Bold Italic" size="13.0" fx:id="x2" />
+      </font>
+    </Label>
+  </children>
+</AnchorPane>

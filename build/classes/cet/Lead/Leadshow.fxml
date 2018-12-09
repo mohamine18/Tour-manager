@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1050.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cet.Lead.LeadshowController">
+  <children>
+    <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <children>
+        <ToolBar>
+          <items>
+            <TextField fx:id="TFSearch" onKeyTyped="#TFsearchField" prefWidth="246.0" promptText="Search Field" />
+          </items>
+        </ToolBar>
+        <TableView fx:id="LeadTable" prefHeight="569.0" prefWidth="800.0">
+          <columns>
+            <TableColumn minWidth="75.0" prefWidth="200.0" text="Trip Name" fx:id="TripNameCol" />
+            <TableColumn minWidth="75.0" prefWidth="100.0" text="Trip Date" fx:id="TripDateCol" />
+            <TableColumn minWidth="75.0" prefWidth="150.0" text="Leader Name" fx:id="LeaderNameCol" />
+            <TableColumn minWidth="75.0" prefWidth="150.0" text="First Assistant name" fx:id="AssistantOneCol" />
+            <TableColumn minWidth="75.0" prefWidth="150.0" text="Second Assistant Name" fx:id="AssistantTwoCol" />
+            <TableColumn minWidth="75.0" prefWidth="150.0" text="Third Assistant Name" fx:id="AssistantThreeCol" />
+            <TableColumn minWidth="75.0" prefWidth="150.0" text="Fourth Assistant Name" fx:id="AssistantFourCol" />
+          </columns>
+        </TableView>
+      </children>
+    </VBox>
+  </children>
+</AnchorPane>

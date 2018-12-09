@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="400.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cet.AddCustomerController">
+  <children>
+    <ImageView fitHeight="100.0" fitWidth="150.0" layoutX="150.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../img/Creative-Tail-People-add-user.svg.png" />
+      </image>
+    </ImageView>
+    <Label layoutX="153.0" layoutY="139.0" text="Add Customer">
+      <font>
+        <Font name="System Bold" size="14.0" />
+      </font>
+    </Label>
+    <Label layoutX="40.0" layoutY="209.0" text="Full Name :">
+      <font>
+        <Font name="System Bold" size="12.0" fx:id="x1" />
+      </font>
+    </Label>
+    <TextField fx:id="AddTFName" layoutX="159.0" layoutY="205.0" prefWidth="200.0" />
+    <Label font="$x1" layoutX="38.0" layoutY="253.0" text="Date of Birth :" />
+    <ComboBox fx:id="ChBoxDy" layoutX="300.0" layoutY="251.0" prefHeight="21.0" prefWidth="60.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox fx:id="ChBoxYear" layoutX="161.0" layoutY="251.0" prefHeight="21.0" prefWidth="73.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ComboBox fx:id="ChBoxMo" layoutX="238.0" layoutY="251.0" minWidth="48.0" prefHeight="21.0" prefWidth="60.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <Label font="$x1" layoutX="39.0" layoutY="330.0" text="ID Number :" />
+    <ChoiceBox fx:id="ChBoxGender" layoutX="161.0" layoutY="290.0" prefWidth="126.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <TextField fx:id="AddIDNum" layoutX="160.0" layoutY="327.0" prefWidth="200.0" />
+    <Label font="$x1" layoutX="39.0" layoutY="292.0" text="Gender :" />
+    <Label font="$x1" layoutX="40.0" layoutY="367.0" text="Phone Number :" />
+    <TextField fx:id="AddPhoneNum" layoutX="160.0" layoutY="365.0" prefWidth="200.0" promptText="+86" />
+    <Label font="$x1" layoutX="39.0" layoutY="406.0" text="Country :" />
+    <ComboBox id="ComBox" fx:id="ComBoxCountry" editable="true" layoutX="160.0" layoutY="402.0" prefHeight="21.0" prefWidth="199.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <Button fx:id="AddButton" layoutX="248.0" layoutY="485.0" mnemonicParsing="false" onAction="#AddCustomer" prefWidth="64.0" text="Add" textFill="#41cc00">
+      <font>
+        <Font size="14.0" fx:id="x2" />
+      </font>
+    </Button>
+    <Button fx:id="CancelButton" font="$x2" layoutX="321.0" layoutY="485.0" mnemonicParsing="false" onAction="#CloseStage" text="Cancel" textFill="RED" />
+    <Label fx:id="LabelErr" layoutX="44.0" layoutY="526.0" prefWidth="268.0" text="" textFill="RED">
+      <font>
+        <Font size="13.0" />
+      </font>
+    </Label>
+    <Separator layoutX="0.0" layoutY="174.0" prefHeight="8.0" prefWidth="401.0" />
+    <Separator layoutX="0.0" layoutY="457.0" prefHeight="8.0" prefWidth="401.0" />
+  </children>
+</AnchorPane>

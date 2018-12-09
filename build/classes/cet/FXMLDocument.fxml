@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" blendMode="MULTIPLY" minHeight="-1.0" mouseTransparent="false" onKeyPressed="#showcustomer" opacity="1.0" prefHeight="-1.0" prefWidth="378.0" snapToPixel="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cet.FXMLDocumentController">
+  <children>
+    <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <Label id="conn" fx:id="err" disable="false" prefWidth="378.0" text="" textAlignment="CENTER" textFill="RED">
+          <font>
+            <Font name="System Bold" size="14.0" />
+          </font>
+          <BorderPane.margin>
+            <Insets bottom="5.0" left="20.0" />
+          </BorderPane.margin>
+        </Label>
+      </bottom>
+      <center>
+        <VBox alignment="CENTER_RIGHT">
+          <children>
+            <HBox>
+              <children>
+                <Region>
+                  <HBox.margin>
+                    <Insets left="75.0" />
+                  </HBox.margin>
+                </Region>
+                <ImageView fx:id="img" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                    <Image url="@../img/Untitled-1.png" />
+                  </image>
+                  <HBox.margin>
+                    <Insets bottom="5.0" />
+                  </HBox.margin>
+                </ImageView>
+                <Region>
+                  <HBox.margin>
+                    <Insets right="75.0" />
+                  </HBox.margin>
+                </Region>
+              </children>
+              <VBox.margin>
+                <Insets />
+              </VBox.margin>
+            </HBox>
+            <VBox>
+              <children>
+                <TextField fx:id="username" promptText="Username">
+                  <VBox.margin>
+                    <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" fx:id="x1" />
+                  </VBox.margin>
+                </TextField>
+                <PasswordField fx:id="password" promptText="Password" VBox.margin="$x1" />
+                <Button id="label" fx:id="login" mnemonicParsing="false" onAction="#handleButtonAction" text="Log In !">
+                  <VBox.margin>
+                    <Insets bottom="5.0" left="295.0" top="5.0" />
+                  </VBox.margin>
+                </Button>
+              </children>
+            </VBox>
+          </children>
+        </VBox>
+      </center>
+    </BorderPane>
+  </children>
+</AnchorPane>

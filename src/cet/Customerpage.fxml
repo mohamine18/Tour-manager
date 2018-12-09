@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cet.CustomerpageController">
+  <children>
+    <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <center>
+        <SplitPane dividerPositions="0.7053422370617696" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0">
+          <items>
+            <AnchorPane minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="1000.0">
+              <children>
+                <VBox prefHeight="-1.0" prefWidth="-1.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                    <ToolBar>
+                      <items>
+                        <TextField fx:id="SearchField" alignment="CENTER_LEFT" onKeyTyped="#SearchNameField" prefWidth="400.0" promptText="Search Field" />
+                        <RadioButton fx:id="RadioName" mnemonicParsing="false" text="By Name" />
+                        <RadioButton fx:id="RadioPhone" mnemonicParsing="false" text="By Phone N°" />
+                      </items>
+                    </ToolBar>
+                    <TableView fx:id="CusTable" minHeight="-1.0" minWidth="-1.0" onMouseClicked="#MouseClicked" prefHeight="1000.0" prefWidth="-1.0" tableMenuButtonVisible="false">
+                      <columns>
+                        <TableColumn minWidth="150.0" prefWidth="200.0" text="Name" fx:id="CusName" />
+                        <TableColumn minWidth="80.0" prefWidth="100.0" text="Gender" fx:id="CusGender" />
+                        <TableColumn minWidth="100.0" prefWidth="150.0" text="PPC &amp; CID" fx:id="CusPPID" />
+                        <TableColumn minWidth="100.0" prefWidth="150.0" text="Phone" fx:id="CusPhone" />
+                        <TableColumn minWidth="100.0" prefWidth="150.0" text="Country" fx:id="CusCountry" />
+                        <TableColumn prefWidth="90.0" text="Date of Birth" fx:id="CusDOB" />
+                      </columns>
+                      <VBox.margin>
+                        <Insets />
+                      </VBox.margin>
+                    </TableView>
+                  </children>
+                </VBox>
+              </children>
+            </AnchorPane>
+            <AnchorPane minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0">
+              <children>
+                <VBox prefHeight="459.0" prefWidth="526.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <children>
+                    <ToolBar orientation="HORIZONTAL">
+                      <items>
+                        <Button fx:id="load" mnemonicParsing="false" onAction="#LoadData" text="Load">
+                          <graphic>
+                            <ImageView fitHeight="21.0" fitWidth="200.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                              <image>
+                                <Image url="@../img/icon%20(2).png" />
+                              </image>
+                            </ImageView>
+                          </graphic>
+                        </Button>
+                        <Button id="CusAdd" contentDisplay="LEFT" mnemonicParsing="false" onAction="#ActivatField" prefHeight="26.0" text="Add Customer" textAlignment="LEFT" />
+                        <Button contentDisplay="LEFT" mnemonicParsing="false" onAction="#Getdata" prefHeight="26.0" text="Edit Customer" textAlignment="LEFT" />
+                      </items>
+                      <VBox.margin>
+                        <Insets />
+                      </VBox.margin>
+                    </ToolBar>
+                    <Label fx:id="LabelEmpty" text="" textFill="RED">
+                      <font>
+                        <Font name="System Bold Italic" size="14.0" fx:id="x4" />
+                      </font>
+                      <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+                      </VBox.margin>
+                    </Label>
+                    <Label font="$x4" text="Full Name :">
+                      <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+                      </VBox.margin>
+                    </Label>
+                    <TextField fx:id="TFName" alignment="CENTER" disable="false" editable="false" prefWidth="200.0" VBox.margin="$x3" />
+                    <Label font="$x4" text="Gender :" VBox.margin="$x3" />
+                    <ChoiceBox fx:id="TFGender" disable="true" focusTraversable="true" opacity="0.8" prefWidth="158.0" visible="true">
+                      <items>
+                        <FXCollections fx:factory="observableArrayList">
+                          <String fx:value="Item 1" />
+                          <String fx:value="Item 2" />
+                          <String fx:value="Item 3" />
+                        </FXCollections>
+                      </items>
+                      <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+                      </VBox.margin>
+                    </ChoiceBox>
+                    <Label font="$x4" text="Passport Or Chinese ID :">
+                      <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+                      </VBox.margin>
+                    </Label>
+                    <TextField fx:id="TFppncid" alignment="CENTER" disable="false" editable="false" prefWidth="200.0">
+                      <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+                      </VBox.margin>
+                    </TextField>
+                    <Label font="$x4" text="Phone :">
+                      <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+                      </VBox.margin>
+                    </Label>
+                    <TextField fx:id="TFPhone" alignment="CENTER" disable="false" editable="false" prefWidth="200.0">
+                      <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+                      </VBox.margin>
+                    </TextField>
+                    <Label font="$x4" text="Country :">
+                      <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+                      </VBox.margin>
+                    </Label>
+                    <ComboBox fx:id="TFCountry" disable="true" editable="false" opacity="0.8" prefHeight="21.0" prefWidth="158.0">
+                      <items>
+                        <FXCollections fx:factory="observableArrayList">
+                          <String fx:value="Item 1" />
+                          <String fx:value="Item 2" />
+                          <String fx:value="Item 3" />
+                        </FXCollections>
+                      </items>
+                      <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+                      </VBox.margin>
+                    </ComboBox>
+                    <Label font="$x4" text="Date of Birth :">
+                      <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+                      </VBox.margin>
+                    </Label>
+                    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0">
+                      <children>
+                        <ComboBox id="TFCountry" fx:id="ChCusYear" disable="true" editable="false" opacity="0.8" prefHeight="21.0" prefWidth="80.0" visibleRowCount="6">
+                          <items>
+                            <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Item 1" />
+                              <String fx:value="Item 2" />
+                              <String fx:value="Item 3" />
+                            </FXCollections>
+                          </items>
+                          <HBox.margin>
+                            <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" fx:id="x6" />
+                          </HBox.margin>
+                        </ComboBox>
+                        <ComboBox id="TFCountry" fx:id="ChCusMo" disable="true" editable="false" opacity="0.8" prefHeight="21.0" prefWidth="65.0" visibleRowCount="6">
+                          <items>
+                            <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Item 1" />
+                              <String fx:value="Item 2" />
+                              <String fx:value="Item 3" />
+                            </FXCollections>
+                          </items>
+                          <HBox.margin>
+                            <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
+                          </HBox.margin>
+                        </ComboBox>
+                        <ComboBox id="TFCountry" fx:id="ChCusDy" disable="true" editable="false" opacity="0.8" prefHeight="21.0" prefWidth="60.0" visibleRowCount="6" HBox.margin="$x6">
+                          <items>
+                            <FXCollections fx:factory="observableArrayList">
+                              <String fx:value="Item 1" />
+                              <String fx:value="Item 2" />
+                              <String fx:value="Item 3" />
+                            </FXCollections>
+                          </items>
+                        </ComboBox>
+                      </children>
+                    </HBox>
+                    <Separator prefWidth="200.0">
+                      <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                      </VBox.margin>
+                    </Separator>
+                    <HBox alignment="CENTER">
+                      <children>
+                        <Button fx:id="AddButton" alignment="BOTTOM_LEFT" cancelButton="false" disable="true" mnemonicParsing="false" onAction="#ConfirmEdit" text="Confirm Edit" textAlignment="JUSTIFY" textFill="#41cc00" textOverrun="CLIP">
+                          <font>
+                            <Font name="System Bold" size="14.0" fx:id="x5" />
+                          </font>
+                          <HBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+                          </HBox.margin>
+                        </Button>
+                        <Button id="DeleteButtom" fx:id="DeleteButton" alignment="BOTTOM_LEFT" disable="true" font="$x5" mnemonicParsing="false" onAction="#ShowDeletePanel" text="Delete" textAlignment="JUSTIFY" textFill="RED" textOverrun="CLIP">
+                          <HBox.margin>
+                            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x3" />
+                          </HBox.margin>
+                        </Button>
+                      </children>
+                      <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                      </VBox.margin>
+                    </HBox>
+                  </children>
+                </VBox>
+              </children>
+            </AnchorPane>
+          </items>
+        </SplitPane>
+      </center>
+      <top>
+        <VBox>
+          <children>
+            <MenuBar>
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Close" fx:id="MenuItemClose" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Customers">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#MenuItemCustomerlunch" text="Add Customer" fx:id="MenuItemAddCustomer" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Trips">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#MenuItemAddTrip" text="Add Trips" fx:id="MenuItemAddTrip" />
+                    <MenuItem mnemonicParsing="false" onAction="#MenuItemAddHiker" text="Add Hikers" fx:id="MenuItemAddHiker" />
+                    <MenuItem mnemonicParsing="false" onAction="#MenuItemConsultLeader" text="Consult Leaders" fx:id="MenuItemConsultLeader" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Leaders">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#MenuItemAddLeader" text="Add Leaders" fx:id="MenuItemAddLeader" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="VIP">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Add VIP" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Customer" />
+                    <MenuItem mnemonicParsing="false" text="Trip" />
+                    <MenuItem mnemonicParsing="false" text="Hiker" />
+                    <MenuItem mnemonicParsing="false" text="About" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+              <children>
+                <Button fx:id="Cus" contentDisplay="TOP" disable="true" mnemonicParsing="false" text="Customers" textAlignment="LEFT" wrapText="false">
+                  <font>
+                    <Font name="System Bold" size="12.0" fx:id="x1" />
+                  </font>
+                  <graphic>
+                    <ImageView fitHeight="80.0" fitWidth="100.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../img/Cust.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                  <HBox.margin>
+                    <Insets bottom="5.0" left="10.0" top="5.0" fx:id="x2" />
+                  </HBox.margin>
+                </Button>
+                <Button fx:id="trip" contentDisplay="TOP" font="$x1" mnemonicParsing="false" onAction="#ButtonAction" text="Trips" HBox.margin="$x2">
+                  <graphic>
+                    <ImageView fitHeight="80.0" fitWidth="100.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../img/Trip.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </Button>
+                <Button contentDisplay="TOP" font="$x1" mnemonicParsing="false" onAction="#leaderaction" text="Leaders" HBox.margin="$x2">
+                  <graphic>
+                    <ImageView fitHeight="80.0" fitWidth="100.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../img/Leader.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </Button>
+                <Button contentDisplay="TOP" font="$x1" mnemonicParsing="false" text="VIP" HBox.margin="$x2">
+                  <graphic>
+                    <ImageView fitHeight="80.0" fitWidth="100.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                      <image>
+                        <Image url="@../img/VIP.png" />
+                      </image>
+                    </ImageView>
+                  </graphic>
+                </Button>
+              </children>
+            </HBox>
+          </children>
+        </VBox>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>

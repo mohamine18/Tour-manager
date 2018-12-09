@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="430.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="cet.Goto.AddGotoController">
+  <children>
+    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="140.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../../img/Creative-Tail-People-add-user.svg.png" />
+      </image>
+    </ImageView>
+    <Label layoutX="182.0" layoutY="178.0" text="Add Hiker">
+      <font>
+        <Font name="System Bold" size="14.0" />
+      </font>
+    </Label>
+    <Separator layoutX="1.0" layoutY="212.0" prefWidth="428.0" />
+    <Label layoutX="27.0" layoutY="239.0" text="Select Customer :">
+      <font>
+        <Font name="System Bold" size="12.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Label font="$x1" layoutX="27.0" layoutY="292.0" text="Select Trip :" />
+    <TextField fx:id="TFNameHiker" editable="false" layoutX="146.0" layoutY="236.0" prefWidth="202.0" />
+    <Button layoutX="354.0" layoutY="236.0" mnemonicParsing="false" onAction="#SelectCustomer" text="Select" />
+    <TextField fx:id="TFNameTrip" editable="false" layoutX="147.0" layoutY="289.0" prefWidth="200.0" />
+    <Button layoutX="353.0" layoutY="290.0" mnemonicParsing="false" onAction="#SelectTrip" text="Select" />
+    <Label font="$x1" layoutX="27.0" layoutY="348.0" text="Meeting Point :" />
+    <ComboBox id="ChAdd" fx:id="ChAddHikerMP" layoutX="145.0" layoutY="345.0" prefHeight="21.0" prefWidth="202.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <Label font="$x1" layoutX="27.0" layoutY="391.0" text="Amount :" />
+    <TextField fx:id="TFHikerAmount" layoutX="146.0" layoutY="388.0" prefWidth="202.0" />
+    <Label font="$x1" layoutX="27.0" layoutY="440.0" text="Payment Method :" />
+    <ComboBox fx:id="ChAddHikerPM" layoutX="145.0" layoutY="438.0" onAction="#CashSelected" prefHeight="21.0" prefWidth="202.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <Label fx:id="CollectorLabel" font="$x1" layoutX="27.0" layoutY="487.0" text="Collector Name :" visible="false" />
+    <TextField fx:id="TFCollector" disable="false" editable="false" layoutX="145.0" layoutY="484.0" onAction="#CashSelected" prefWidth="200.0" visible="false" />
+    <Button fx:id="BTselectCollector" layoutX="354.0" layoutY="484.0" mnemonicParsing="false" onAction="#selectCollector" text="Select" visible="false" />
+    <Separator layoutX="0.0" layoutY="531.0" prefWidth="428.0" />
+    <Label fx:id="GotoLabel" layoutX="27.0" layoutY="584.0" prefWidth="223.0" text="" textFill="RED">
+      <font>
+        <Font size="13.0" />
+      </font>
+    </Label>
+    <Button layoutX="264.0" layoutY="557.0" mnemonicParsing="false" onAction="#AddHiker" prefWidth="65.0" text="Add" textFill="#41cc00">
+      <font>
+        <Font size="14.0" fx:id="x2" />
+      </font>
+    </Button>
+    <Button font="$x2" layoutX="343.0" layoutY="557.0" mnemonicParsing="false" onAction="#CancelAddHiker" text="Cancel" textFill="RED" />
+  </children>
+</AnchorPane>
